@@ -1,0 +1,84 @@
+#body{
+    background-color: cadetblue;
+    /* background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("handform.jpg"); */
+    background-size: 120vmax;
+}
+.main1{
+    border:3px solid black;
+    box-shadow: 0 0 0 1px black;
+    height:80%;
+}
+#crop_name{
+    flex-grow:5em;
+    margin-left:1em;
+}
+.taste{
+    margin-left:38%;
+    margin-top:3em;
+}
+#asses{
+    margin-right: 20%;
+    margin-left:20%;
+}
+h4{
+    text-align: center;
+}
+.main1{
+    margin-top:7%;
+    margin-left:12%;
+    /* margin-bottom:5%; */
+    margin-right: 14%;
+}
+#asses select{
+    /* padding-left:1.3em; */
+    height:3em;
+    width:14em;
+    border-radius:12px;
+}
+.arable{
+    margin-left:0%;
+    margin-top:2em;
+}
+.container-b input{
+    height:3em;
+    width:15em;
+    border-radius:12px;
+}
+.container-b{
+    margin-top:7%;
+    margin-left:22%;
+}
+.container-d{
+    margin-left:13%;
+    margin-top:7%;
+}
+.container-e{
+    margin-left:21%;
+    margin-top:7%;
+}
+#Mono input{
+    height:3em;
+    width:15em;
+    border-radius:12px;
+}
+#Mono{
+    margin-left:12%;
+    margin-top:5%;
+}
+#Poly{
+    margin-left:12%;
+    margin-top:7%;
+}
+#diff_crops{
+    margin-left:20%;
+
+}
+#opt-a input,#opt-b input,#opt-c input,#opt-d input{
+    /* padding-left:1.3em; */
+    height:3em;
+    width:14em;
+    border-radius:12px;
+}
+#opt-b{
+    margin-top: 4em;
+}
