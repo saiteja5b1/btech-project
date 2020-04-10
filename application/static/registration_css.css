@@ -1,23 +1,45 @@
 #body{
-    background-color:cadetblue;
-    /* background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url("agr.webp"); */
+    background: linear-gradient(rgba(0, 1, 7, 0.7),rgba(0,0,0,0.5)), url("handfarm.jpg");
     background-size: 120vmax;
 }
 .genn{
-    border:3px solid black;
-    box-shadow: 0 0 0 1px black;
-    height:60%;
+    height: 380px;
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow:0 0 5px 5px #888;
+    box-shadow: 0 0 10px 8px #617c58;
+}
+h1{
+    /* color:#99c68e; */
+    color:#667c26;
 }
 .general{
     margin-right: 20%;
     margin-left:20%;
 }
-h4{
+label{
+    color:#ffffcc;
     text-align: center;
 }
+legend{
+    color:#ffffcc;
+}
+.container-4-content{
+    display:none;
+    position:absolute;
+    background-color:black;
+    min-width:160px;
+    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index:1;
+}
+.container-4-content select:hover{
+    background-color:black;
+}
+.container-4:hover{
+    display:block;
+}
 .genn{
-    margin-top:7%;
-    margin-left:14%;
+    margin-top:5%;
+    margin-left:0%;
     /* margin-bottom:5%; */
     margin-right: 14%;
 }
@@ -25,28 +47,34 @@ h4{
     text-align: center;
 }
 .container-1 input{
-    height:3em;
-    width:15em;
+    height:2.5em;
+    width:13em;
     border-radius:12px;
-    margin-top: 5em;
-    margin-left:4em;
-    /* background-color: thistle; */
+    margin-top: 3.5em;
+    margin-left:4em; 
+}
+input:hover,textarea:hover{
+    background-color:#ffffcc;
+    border:2.5px solid #f3e5ab;
+}
+input:focus,textarea:focus,select:focus{
+    outline:none;
 }
 .container-2 textarea{
     height:4em;
     width:18em;
     border-radius:12px;
-    margin-top:6em;
+    margin-top:4em;
 }
 #cont-1{
-    margin-left:30em;
+    margin-left:25em;
 }
 #cont-1 select{
     /* padding-left:1.3em; */
-    height:3em;
-    width:14em;
+    height:2.5em;
+    width:13em;
     border-radius:12px;
-    margin-top:3.4em;
+    margin-top:3.0em;
 }
 .container-4 select{
     margin-left:4em;
@@ -58,11 +86,11 @@ h4{
     margin-left:4em;
 }
 .container-6 select{
-    height:3em;
-    width:14em;
+    height:2em;
+    width:10em;
     border-radius:12px;
 }
 .container-6{
-    margin-top:6em;
-    margin-left:18em;
+    margin-top:3em;
+    margin-left:10em;
 }
