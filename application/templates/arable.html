@@ -2,7 +2,9 @@
     <head>
         <link rel="stylesheet" href="{{url_for('static',filename='arable.css')}}">
         <meta charset="utf-8">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <script src="{{url_for('static',filename='js/arable.js')}}"></script>
+        <script src="{{url_for('static',filename='js/populate_next1.js')}}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <meta http-equiv="Cache-Control" control="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
@@ -14,15 +16,8 @@
     </head>
     <body id="body">
         <div class="form-group" id="asses">
-            <legend>Arable Assests Details</legend>
-                <div class="main1" id="main1">
-                    <div class="taste">
-                        <select id="taste_of_crop">
-                            <option value="none" selected>select crop type</option>
-                            <option value="Monoculture" id="mon">Monoculture</option>
-                            <option value="Polyculture" id="pol">Polyculture</option>
-                        </select>
-                    </div>
+            <legend><h3>Arable Assests details</h3></legend>
+            <hr>
                             <div class="for_arable" id="for_arable">
                                         <div class="container-b">
                                             <!-- <label for="place">place of land</label> -->
@@ -30,7 +25,6 @@
                                     <!-- <input type="number" placeholder="Enter the Length" name="length">
                                     <input type="number" placeholder="Enter the Width" name="width"> -->
                                     <!-- <label for="acres">acres</label> -->
-                                            <input class="col-xs-offset-1" type="number" placeholder="enter acres" name="acres" id='acres'>
                                         </div>
                                         <div class="container-d">
                                             <!-- <label for="own">Select Your Identity</label> -->
@@ -40,50 +34,58 @@
                                                 <option value="Lease_Land">Lease Land</option>
                                             </select>
                                         </div>
-                        <div class="container-f">
-                            <div id="Mono">
-                                <div class="arable" id="ara_ble">
-                                    <label for="kind_of_arable">Select Your Kind</label>
-                                    <div class="container-a">
-                                        <select id="kind_of_arable">
-                                            <option value="" selected>__Select__</option>
-                                            <option value="cash">Cash</option>
-                                            <option value="food">Food</option>
-                                            <option value="horticulture">Horticulture</option>
-                                            <option value="plantation">Plantation</option>
-                                        </select>
+                                        <div class="main1" id="main1">
+                                            <div class="taste">
+                                                <select id="taste_of_crop">
+                                                    <option value="none" selected>select crop type</option>
+                                                    <option value="Monoculture" id="mon">Monoculture</option>
+                                                    <option value="Polyculture" id="pol">Polyculture</option>
+                                                </select>
+                                            </div>
+                                <div id="Mono">
+                                    <div class="arable" id="ara_ble">
+                                            <label for="kind_of_arable">Select Your Kind</label>
+                                            <div class="container-a">
+                                                <select id="kind_of_arable">
+                                                    <option value="" selected>__Select__</option>
+                                                    <option value="cash">Cash</option>
+                                                    <option value="food">Food</option>
+                                                    <option value="horticulture">Horticulture</option>
+                                                    <option value="plantation">Plantation</option>
+                                                </select>
+                                            </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div id="crop_name">
-                                <label>Crop Name</label>
-                                <!-- <input type="text"> -->
-                                <select name="crop_select"  id="crop_select">
-                                    <option value="" selected>-- Select --</option>
-                                </select>
-                            </div>
+                                        <div class="crop_name" id="crop_name">
+                                                <label>Crop Name</label>
+                                                <!-- <input type="text"> -->
+                                                <div class="sample-a">
+                                                <select name="crop_select"  id="crop_select">
+                                                    <option value="" selected>-- Select --</option>
+                                                </select>
+                                                </div>
+                                        </div>
                             <script>
-                $("select[id='kind_of_arable']").focusout(function(){
-                selectedArable=$(this).val();
-                // $(#mandals).empty();     
-                
-                var s={{datalist|tojson}};
-                console.log(s[selectedArable].length)
-                sel = document.getElementById('crop_select');
-                var child = sel.lastElementChild;  
-                while (child) { 
-                    sel.removeChild(child); 
-                    child = sel.lastElementChild; 
-                } 
-                for (i = 0; i < s[selectedArable].length; i++) {
-                opt = document.createElement('option');
-                opt.value =s[selectedArable][i];
-                opt.innerHTML=opt.value;
-                sel.appendChild(opt);
-                }
-            });
-            </script> 
-                            </div>
+                                $("select[id='kind_of_arable']").focusout(function(){
+                                selectedArable=$(this).val();
+                                // $(#mandals).empty();     
+                                
+                                var s={{datalist|tojson}};
+                                console.log(s[selectedArable].length)
+                                sel = document.getElementById('crop_select');
+                                var child = sel.lastElementChild;  
+                                while (child) { 
+                                    sel.removeChild(child); 
+                                    child = sel.lastElementChild; 
+                                } 
+                                for (i = 0; i < s[selectedArable].length; i++) {
+                                opt = document.createElement('option');
+                                opt.value =s[selectedArable][i];
+                                opt.innerHTML=opt.value;
+                                sel.appendChild(opt);
+                                }
+                            });
+                            </script> 
+                        </div>
                             <div id="Poly">
                                 <label for="poly_crops" id="poly_crops">Select your Choices</label>
                                     <div id="diff_crops">
@@ -153,15 +155,13 @@
                 </div>
         </div>
     </body>
-    <script src="{{url_for('static',filename='js/arable.js')}}"></script>
-    <script src="{{url_for('static',filename='js/populate_next1.js')}}"></script>
     <!-- <script src="js/main.js"></script>
     <script src="js/jsc1.js"></script>
     <script src="js/mono_poly.js"></script>
     <script src="js/populate_next.js"></script>
-    <script src="js/popullate_next0.js"></script>
+    <script src="js/popullate_next0.js"></script>-->
     <script src="js/populate_next1.js"></script>
-    <script src="js/fish_land.js"></script>
+    <!--<script src="js/fish_land.js"></script>
     <script src="js/for_arable_pop.js"></script>
     <script src="js/diapoulfis.js"></script> -->
 </html>
