@@ -33,7 +33,7 @@ def contactus():
 
 @app.route('/register',methods=['GET'])
 def register():
-    with open('application/datasets/dat.json','r') as f:
+    with open('datasets/dat.json','r') as f:
         datalist=json.load(f)
     dist=list(datalist.keys())    
     return render_template('register.html',datalist=datalist,districts=dist)
@@ -51,7 +51,7 @@ def register():
 
 @app.route('/arable',methods=['GET','POST'])
 def arable():
-    with open('application/datasets/arable.json') as f:
+    with open('datasets/arable.json') as f:
         crops=json.load(f)
     return render_template('arable.html',datalist=crops)
 

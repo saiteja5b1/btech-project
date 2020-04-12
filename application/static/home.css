@@ -6,7 +6,7 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-    background-color: rgb(68, 194, 99);
+    background-color: rgba(0,0,0);
   }
 #footer{
   font-family: Georgia, 'Times New Roman', Times, serif;
