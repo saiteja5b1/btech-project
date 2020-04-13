@@ -19,6 +19,9 @@ option,label{
     margin-left: 16em;
     margin-top: 2em;
 }
+#output{
+    color: white;
+}
 .a,.c,.d{
     margin-top:1.5em;
     margin-left: 5em;

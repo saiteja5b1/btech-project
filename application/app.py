@@ -2,10 +2,10 @@ from flask import Flask,render_template,url_for,request
 from flask_login import login_required
 import json
 from db_connect import connect
-# from cc import cc/
 
 
 app=Flask(__name__)
+# login = LoginManager(app)
 
 """ creating different routes for different webpages """
 @app.route('/')
@@ -24,7 +24,24 @@ def aboutus():
 
 @app.route('/services')
 def services():
-    return render_template('services01.html')
+    with open('datasets/dat.json','r') as f:
+        datalist=json.load(f)
+    dist=list(datalist.keys()) 
+    with open('datasets/crops.json','r') as g:
+        crops=json.load(g)
+    return render_template('services.html',datalist=datalist,districts=dist,crops=list(crops.keys()))
+    
+@app.route('/hello',methods=['POST'])
+def hello():
+    start=request.form['start']
+    end=request.form['end']
+    district=request.form['District']
+    mandal=request.form['Mandal']
+    crops=request.form['crops']
+    select=request.form['select']
+    c=request.form
+    print(c,list(c),dict(c))
+    return render_template('hello.html',start=start,end=end,district=district,mandal=mandal,crops=crops,select=select)
 
 @app.route('/contact')
 def contactus():

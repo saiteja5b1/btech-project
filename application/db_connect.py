@@ -4,13 +4,12 @@ import json
 from db_tables import table
  
  
-def connect(username):
+def connect():
     """ function for creating db connection object """
     conn = None
     try:
         params = config()
         conn = psycopg2.connect(**params)
-        # user=table(conn,username)
         return(conn)
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)

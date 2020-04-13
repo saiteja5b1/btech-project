@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="{{url_for('static',filename='services01.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='services.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" control="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -21,75 +21,130 @@
     </h2>
     <hr>
     <!-- <legend>Filter</legend> -->
-    <div class="mainsearch" id="aaa">
-        <div class="a">
-            <input type="checkbox" id="by_afford" />
-            <label for="range">Filter by Range</label>
+    <form>
+        <div class="mainsearch" id="aaa">
+            <div class="a">
+                <input type="checkbox" id="by_afford" />
+                <label for="range">Filter by Range</label>
+            </div>
+            <div class="madya" id="for_range">
+                <label for="start_range">From</label>
+                <input type="number" name='start' id="start" />
+                <label for="end_range">To</label>
+                <input type="number" name='end' id="end" />
+                </class>
+            </div>
+            <div class="c">
+                <input type="checkbox" id="by_place" />
+                <label for="place">Filter by Place</label>
+            </div>
+            <div class="madhya1" id="for_place">
+                <label for="dis-select">Select District</label>
+                <select name="District" id="dis-select">
+                    <option value="" selected>-- Select your district --</option>
+                    {% for i in districts %}
+                    <option value="{{i}}">{{i}}</option>
+                    {%endfor%}
+                </select>
+                <label for="man_select">Select Mandal</label>
+                <select name="Mandal" id="man_select">
+                    <option value="" selected>-- Select your mandal --</option>
+                </select>
+
+                <script>
+                    $("select[id='dis-select']").change(function () {
+                        selectedDistrict = $(this).val();
+                        // $(#mandals).empty();     
+
+                        var s = {{ datalist| tojson
+                    }};
+                    console.log(s[selectedDistrict].length)
+                    sel = document.getElementById('man_select');
+                    var child = sel.lastElementChild;
+                    while (child) {
+                        sel.removeChild(child);
+                        child = sel.lastElementChild;
+                    }
+                    for (i = 0; i < s[selectedDistrict].length; i++) {
+                        opt = document.createElement('option');
+                        opt.value = s[selectedDistrict][i];
+                        opt.innerHTML = opt.value;
+                        sel.appendChild(opt);
+                    }
+                                    });
+                </script>
+                </class>
+            </div>
+            <div class="b">
+                <label for="confirm01">Do you want to filter the rest by above selection</label>
+                <input type="radio" id="yes" name="confirm1" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="confirm1" value="no">
+                <label for="no">No</label>
+            </div>
+            <div class="d">
+                <input type="checkbox" id="by_crop" />
+                <label for="crop">Filter by Crop</label>
+            </div>
+            <div class="madhya2" id="for_crop">
+                <label for="crop_name">Select Your Choice</label>
+                <select name="crops" id="crop-select">
+                    <option value="" selected>-- Select your crop --</option>
+                    {% for i in crops %}
+                    <option value="{{i}}">{{i}}</option>
+                    {%endfor%}
+                </select>
+                </class>
+            </div>
+            <div class="e">
+                <label for="analyse">Are you excited to see the previous years analysis of selected crops </label>
+            </div>
+            <div class="madhya3">
+                <input type="radio" id="excited" name="confirm2" value="yes">
+                <label for="yes">Yes,I'm interested</label>
+                <input type="radio" id="notexcited" name="confirm2" value="no">
+                <label for="no">No,I'm not interested</label>
+            </div>
+            <div class="f">
+                <label for="confirm02">You want to go for single or multiple crops</label>
+                <select id="confirm3" name="select">
+                    <option val="0">Single</option>
+                    <option val="1">Multiple</option>
+                </select>
+            </div>
+            <button type="submit" id="filter">filter</button>
         </div>
-        <div class="madya" id="for_range">
-            <label for="start_range">From</label>
-            <input type="number" id="start" />
-            <label for="end_range">To</label>
-            <input type="number" id="end" />
-            </class>
-        </div>
-        <div class="c">
-            <input type="checkbox" id="by_place" />
-            <label for="place">Filter by Place</label>
-        </div>
-        <div class="madhya1" id="for_place">
-            <label for="district">Select District</label>
-            <select id="diss" onselect="show_mand(this)">
-                <option value="">__Select__</option>
-            </select>
-            <label for="mandal">Select Mandal</label>
-            <select id="mann">
-                <option value="">__Select__</option>
-            </select>
-            </class>
-        </div>
-        <div class="b">
-            <label for="confirm01">Do you want to filter the rest by above selection</label>
-            <input type="radio" id="yes" name="confirm1" value="yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="confirm1" value="no">
-            <label for="no">No</label>
-        </div>
-        <div class="d">
-            <input type="checkbox" id="by_crop" />
-            <label for="crop">Filter by Crop</label>
-        </div>
-        <div class="madhya2" id="for_crop">
-            <label for="crop_name">Select Your Choice</label>
-            <select multiple size="">
-                <option val="">__Select__</option>
-            </select>
-            </class>
-        </div>
-        <div class="e">
-            <label for="analyse">Are you excited to see the previous years analysis of selected crops </label>
-        </div>
-        <div class="madhya3">
-            <input type="radio" id="excited" name="confirm2" value="yes">
-            <label for="yes">Yes,I'm interested</label>
-            <input type="radio" id="notexcited" name="confirm2" value="no">
-            <label for="no">No,I'm not interested</label>
-        </div>
-        <div class="f">
-            <label for="confirm02">You want to go for single or multiple crops</label>
-            <select id="confirm3">
-                <option val="0">Single</option>
-                <option val="1">Multiple</option>
-            </select>
-        </div>
-        <input type="submit" id="filter" value="Filter" />
-    </div>
+    </form>
+    <script>
+        $("form").submit(function (e) {
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+
+            form = $(this);
+            url = "{{url_for('hello')}}";
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function (data) {
+                    document.write(data); // show response from the php script.
+                }
+            });
+
+
+        });
+    </script>
+
+
 </body>
 <!-- <script type="text/javascript" src="{{url_for('static',filename='js/filtermain.js')}}"></script> -->
 <!-- <script>
-    $(document).ready(function () {
-        $('#aaa').hide();
-    })
+    $("#start").bind('input propertychange', function () {
+
+        $('#output').html($(this).val());
+
+    });
 </script> -->
 
 </html>

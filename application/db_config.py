@@ -1,8 +1,7 @@
 import json
 
 def config():
-    with open('D:/project/project$/application/database/user.json','r') as f:
+    with open('db_user.json','r') as f:
         details=json.load(f)
-    return(details)
-    
+    return(details)  
        
