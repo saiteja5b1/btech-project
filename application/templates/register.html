@@ -42,6 +42,13 @@
             }
         </script>
     </head>
+    <style>
+        input::-webkit-datetime-edit-month-field,
+        ::-webkit-datetime-edit-day-field,
+        ::-webkit-datetime-edit-text{
+            display:None;
+        }
+    </style>
     <body id="body">
         <div class="container-0">
             <h1>Registration Form</h1>
@@ -189,7 +196,8 @@
                     <div class="prev_det" id="prev_det">
                         <div class="prev_det1">
                             <label>Crop1</label>
-                            <select name="year1" id="year1">
+                            <input type="date">
+                            <!-- <select name="year1" id="year1">
                                 <option value="" selected>__Year1__</option>
                                 <option value="1">2020</option>
                                 <option value="2">2019</option>
@@ -201,12 +209,14 @@
                                 <option value="8">2013</option>
                                 <option value="9">2012</option>
                                 <option value="10">2011</option>
-                            </select>
-                            <input type="text" placeholder="Enter Crop1" />
+                            </select> -->
+                            <input type="text" id="crop1" placeholder="Enter Crop1" />
+                            <input type="number" id="cr1" placeholder="Enter Production in Quintals">
                         </div>
                         <div class="prev_det2">
                             <label>Crop2</label>
-                            <select name="year2" id="year2">
+                            <input type="date">
+                            <!-- <select name="year2" id="year2">
                                 <option value="" selected>__Year2__</option>
                                 <option value="1">2020</option>
                                 <option value="2">2019</option>
@@ -218,12 +228,14 @@
                                 <option value="8">2013</option>
                                 <option value="9">2012</option>
                                 <option value="10">2011</option>
-                            </select>
-                            <input type="text" placeholder="Enter Crop2" />
+                            </select> -->
+                            <input type="text" id="crop2" placeholder="Enter Crop2" />
+                            <input type="number" id="cr2" placeholder="Enter Production in Quintals">
                         </div>
                         <div class="prev_det3">
                             <label>Crop3</label>
-                            <select name="year3" id="year3">
+                            <input type="date">
+                            <!-- <select name="year3" id="year3">
                                 <option value="" selected>__Year3__</option>
                                 <option value="1">2020</option>
                                 <option value="2">2019</option>
@@ -235,8 +247,9 @@
                                 <option value="8">2013</option>
                                 <option value="9">2012</option>
                                 <option value="10">2011</option>
-                            </select>
-                            <input type="text" placeholder="Enter Crop3" />
+                            </select> -->
+                            <input type="text" id="crop3" placeholder="Enter Crop3" />
+                            <input type="number" id="cr3" placeholder="Enter Production in Quintals">
                         </div>
                     </div>
                     <input id="submit" type="submit" placeholder="Go">
