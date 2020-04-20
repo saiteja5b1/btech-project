@@ -43,6 +43,18 @@ def hello():
     print(c,list(c),dict(c))
     return render_template('hello.html',start=start,end=end,district=district,mandal=mandal,crops=crops,select=select)
 
+@app.route('/registersubmit',methods=['POST'])
+def registersubmit():
+    start=request.form['Name']
+    end=request.form['Age']
+    district=request.form['PhNo']
+    mandal=request.form['Mandal']
+    crops=request.form['Address']
+    select=request.form['District']
+    c=request.form
+    print(dict(c))
+    return render_template('hello.html',start=start,end=end,district=district,mandal=mandal,crops=crops,select=select)
+
 @app.route('/contact')
 def contactus():
     return render_template('contactus.html')

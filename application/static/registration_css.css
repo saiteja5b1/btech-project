@@ -1,5 +1,5 @@
 #body{
-    background: linear-gradient(rgba(0, 1, 7, 0.7),rgba(0,0,0,0.5)), url("handfarm.jpg");
+    background: linear-gradient(rgba(0, 7, 7, 0.6),rgba(0,0,0,0.1)), url("back.jpg");
     background-size: 120vmax;
 }
 /* .genn{
@@ -8,9 +8,9 @@
     -webkit-box-shadow:0 0 5px 5px #888;
     box-shadow: 0 0 10px 8px #617c58;
 } */
-h1{
+h1,h5{
     /* color:#99c68e; */
-    color:#667c26;
+    color:white;
 }
 /* .general{
     margin-right: 20%;
