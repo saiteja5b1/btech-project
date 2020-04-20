@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    {% block style %}
+    <link rel="stylesheet" href="{{url_for('static',filename='output.css')}}">
+    {% endblock style %}
+
+    <title>Agro-Backing</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="header">
+            {% block header %}
+            <div id="logo">
+                <img src="{{url_for('static',filename='log.jpg')}}" class="img-circle" alt="logo" usemap="#logomap">
+            </div>
+            <div id="title">Agro-Backing</div>
+            <div id="sub">we work for farmers</div>
+            {% endblock header %}
+        </div>
+        <div id="container">
+            <div id="navigator">
+                {% block navigator %}
+                <ul class="nav-area" id="sai-teja">
+                    <li><a class="nav-item active" href="{{url_for('home')}}">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-item dropdown-toggle" data-toggle="dropdown" href="#" role="button">Profile</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{url_for('login')}}">login</a>
+                            <a class="dropdown-item" href="{{url_for('viewProfile')}}">view</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="main.html">logout</a>
+                        </div>
+                    </li>
+                    <li><a class="nav-item" href="{{url_for('services')}}">Services</a></li>
+                    <li><a class="nav-item" href="{{url_for('aboutus')}}">About us</a></li>
+                    <li><a class="nav-item" href="{{url_for('contactus')}}">Contact us</a></li>
+                </ul>
+                <script>
+                    // Adding active class to the current button (highlighting)
+                    var header = document.getElementById("sai-teja");
+                    var btns = header.getElementsByClassName("nav-item");
+                    for (var i = 0; i < btns.length; i++) {
+                        btns[i].addEventListener("click", function () {
+                            var current = document.getElementsByClassName("active");
+                            current[0].className = current[0].className.replace(" active", "");
+                            this.className += " active";
+                        });
+                    }
+                </script>
+                {% endblock navigator %}
+            </div>
+
+            <div id="main">
+                {% block container %}
+                <h2>
+                    <center>Search by selection</center>
+                </h2>
+                <hr>
+                <!-- <legend>Filter</legend> -->
+                <form>
+                    <div class="mainsearch" id="aaa">
+                        <div class="a">
+                            <input type="checkbox" id="by_afford" />
+                            <label for="range">Filter by Range</label>
+                        </div>
+                        <div class="madya" id="for_range">
+                            <label for="start_range">From</label>
+                            <input type="number" name='start' id="start" />
+                            <label for="end_range">To</label>
+                            <input type="number" name='end' id="end" />
+                            </class>
+                        </div>
+                        <div class="c">
+                            <input type="checkbox" id="by_place" />
+                            <label for="place">Filter by Place</label>
+                        </div>
+                        <div class="madhya1" id="for_place">
+                            <label for="dis-select">Select District</label>
+                            <select name="District" id="dis-select">
+                                <option value="" selected>-- Select your district --</option>
+                                {% for i in districts %}
+                                <option value="{{i}}">{{i}}</option>
+                                {%endfor%}
+                            </select>
+                            <label for="man_select">Select Mandal</label>
+                            <select name="Mandal" id="man_select">
+                                <option value="" selected>-- Select your mandal --</option>
+                            </select>
+
+                            <script>
+                                $("select[id='dis-select']").change(function () {
+                                    selectedDistrict = $(this).val();
+                                    // $(#mandals).empty();     
+
+                                    var s = {{ datalist| tojson
+                                }};
+                                console.log(s[selectedDistrict].length)
+                                sel = document.getElementById('man_select');
+                                var child = sel.lastElementChild;
+                                while (child) {
+                                    sel.removeChild(child);
+                                    child = sel.lastElementChild;
+                                }
+                                for (i = 0; i < s[selectedDistrict].length; i++) {
+                                    opt = document.createElement('option');
+                                    opt.value = s[selectedDistrict][i];
+                                    opt.innerHTML = opt.value;
+                                    sel.appendChild(opt);
+                                }
+                            });
+                            </script>
+                            </class>
+                        </div>
+                        <div class="b">
+                            <label for="confirm01">Do you want to filter the rest by above selection</label>
+                            <input type="radio" id="yes" name="confirm1" value="yes">
+                            <label for="yes">Yes</label>
+                            <input type="radio" id="no" name="confirm1" value="no">
+                            <label for="no">No</label>
+                        </div>
+                        <div class="d">
+                            <input type="checkbox" id="by_crop" />
+                            <label for="crop">Filter by Crop</label>
+                        </div>
+                        <div class="madhya2" id="for_crop">
+                            <label for="crop_name">Select Your Choice</label>
+                            <select name="crops" id="crop-select">
+                                <option value="" selected>-- Select your crop --</option>
+                                {% for i in crops %}
+                                <option value="{{i}}">{{i}}</option>
+                                {%endfor%}
+                            </select>
+                            </class>
+                        </div>
+                        <div class="e">
+                            <label for="analyse">Are you excited to see the previous years analysis of selected crops
+                            </label>
+                        </div>
+                        <div class="madhya3">
+                            <input type="radio" id="excited" name="confirm2" value="yes">
+                            <label for="yes">Yes,I'm interested</label>
+                            <input type="radio" id="notexcited" name="confirm2" value="no">
+                            <label for="no">No,I'm not interested</label>
+                        </div>
+                        <div class="f">
+                            <label for="confirm02">You want to go for single or multiple crops</label>
+                            <select id="confirm3" name="select">
+                                <option val="0">Single</option>
+                                <option val="1">Multiple</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="filter">filter</button>
+                    </div>
+                </form>
+                <script>
+                    $("form").submit(function (e) {
+
+                        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                        form = $(this);
+                        url = "{{url_for('hello')}}";
+
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: form.serialize(), // serializes the form's elements.
+                            success: function (data) {
+                                document.write(data); // show response from the php script.
+                            }
+                        });
+
+
+                    });
+                </script>
+                {% endblock container %}
+            </div>
+        </div>
+
+        <div id="footer">
+            {% block footer %}
+            <div class="footer-left">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12 segment-one">
+                        <h5>Agro Backing</h5>
+                        <p>Agro Backing is for farmers<br /> struggling to cope up with <br /> situations and in
+                            need....!</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 segment-two">
+                        <h5>Useful links</h5>
+                        <ul>
+                            <li><a href="main.html">Home</a></li>
+                            <li><a href="prof.html">Profile</a></li>
+                            <li><a href="about.html">About us </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 segment-three">
+                        <h5>Follow us on</h5>
+                        <p>Please follow us on our social media pages in order to keep updated.</p>
+                        <a href="#"><i class="fa fa-facebook faIcon"></i></a>
+                        <a href="#"><i class="fa fa-twitter faIcon"></i></a>
+                        <a href="#"><i class="fa fa-pinterest faIcon"></i></a>
+                        <a href="#"><i class="fa fa-linkedin faIcon"></i></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 segment-four">
+                        <h5>Our Newsletter</h5>
+                        <form action="">
+                            <input type="email">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endblock footer %}
+        </div>
+    </div>
+
+
+    {% block jsfile %} {% endblock jsfile %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
