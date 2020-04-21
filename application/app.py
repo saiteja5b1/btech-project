@@ -30,7 +30,7 @@ def services():
     dist=list(datalist.keys()) 
     with open('datasets/crops.json','r') as g:
         crops=json.load(g)
-    return render_template('services.html',datalist=datalist,districts=dist,crops=list(crops.keys()))
+    return render_template('farmersearch.html',datalist=datalist,districts=dist,crops=list(crops.keys()))
     
 @app.route('/hello',methods=['POST'])
 def hello():

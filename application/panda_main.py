@@ -42,7 +42,9 @@ def main():
     #     if tuple(crop_data.xs(i)[['season','district_name','crop']]) in indices:
             
            
-    print(crop_data,average_crops,sep='\n')
+    # print(crop_data,average_crops,sep='\n')
+    return(crop_data[['crop','per(1acre)']])
+
     
     # print(average_crops_districtwise.xs(indices[1])['per(1acre)'])
 

@@ -1,6 +1,10 @@
 #body{
-    background: linear-gradient(rgba(0, 7, 7, 0.6),rgba(0,0,0,0.1)), url("back.jpg");
+    background: linear-gradient(rgba(0, 1, 7, 0.7),rgba(0,0,0,0.5)), url("handfarm.jpg");
     background-size: 120vmax;
+}
+.genn{
+    height:17em;
+    width:65em;
 }
 /* .genn{
     height: 380px;
@@ -8,9 +12,9 @@
     -webkit-box-shadow:0 0 5px 5px #888;
     box-shadow: 0 0 10px 8px #617c58;
 } */
-h1,h5{
+h1{
     /* color:#99c68e; */
-    color:white;
+    color:#667c26;
 }
 /* .general{
     margin-right: 20%;
@@ -106,9 +110,7 @@ input:focus,textarea:focus,select:focus{
     margin-left:10em;
 }
 #Mono{
-    float:left;
-    clear:left;
-    margin-left:18em;
+    margin-left:13em;
     margin-top:2em;
 }
 #prev_det{
@@ -128,8 +130,11 @@ input:focus,textarea:focus,select:focus{
     width:13em;
     border-radius:12px;
 }
-#ara_ble,#crop_name{
+.container-d,#ara_ble,#crop_name{
     float:left;
+}
+#ara_ble{
+    margin-left: 7em;
 }
 #submit{
     float:left;
@@ -142,9 +147,8 @@ input:focus,textarea:focus,select:focus{
     border-radius:1em;
 }
 h5{
-    color:white;
+    color:yellowgreen;
 }
 #crop_name{
-    margin-left:8em;
-    margin-top:3.5em;
+    margin-left:6em;
 }
