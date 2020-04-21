@@ -2,6 +2,7 @@ from flask import Flask,render_template,url_for,request
 from flask_login import login_required
 import json
 from db_connect import connect
+from db_user import user_details
 
 
 app=Flask(__name__)
@@ -10,8 +11,8 @@ app=Flask(__name__)
 """ creating different routes for different webpages """
 @app.route('/')
 def home():
-    # data=['yesu','10','9849643914','kankipadu','ANDHRA PRADESH','KRISHNA','KANKIPADU']
-    # connect(data)
+    data={'Name': 'yesu babu', 'Age': '21', 'PhNo': '9849643914', 'Address': 'kankipadu', 'District': 'krishna', 'Mandal': 'kankipadu', 'place': 'kankipadu', 'identity': 'ownland','landarea':'30','cropkind':'cash', 'crop_select': 'rice', 'date1': '16/04/2020', 'crop1': 'tobacco', 'pro1': '40', 'date2': '17/04/2020', 'crop2': 'ragi', 'Pro2': '30', 'date3': '18/04/2020', 'crop3': 'wheat', 'pro3': '20'}
+    user_details(data)
     return render_template('home.html')
 
 @app.route('/login')
@@ -29,7 +30,7 @@ def services():
     dist=list(datalist.keys()) 
     with open('datasets/crops.json','r') as g:
         crops=json.load(g)
-    return render_template('output.html',datalist=datalist,districts=dist,crops=list(crops.keys()))
+    return render_template('services.html',datalist=datalist,districts=dist,crops=list(crops.keys()))
     
 @app.route('/hello',methods=['POST'])
 def hello():

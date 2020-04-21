@@ -1,7 +1,6 @@
 import psycopg2
 from db_config import config
 import json
-from db_tables import table
  
  
 def connect():
