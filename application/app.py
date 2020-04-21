@@ -11,7 +11,7 @@ app=Flask(__name__)
 """ creating different routes for different webpages """
 @app.route('/')
 def home():
-    data={'Name': 'yesu babu', 'Age': '21', 'PhNo': '9849643914', 'Address': 'kankipadu', 'District': 'krishna', 'Mandal': 'kankipadu', 'place': 'kankipadu', 'identity': 'ownland','landarea':'30','cropkind':'cash', 'crop_select': 'rice', 'date1': '16/04/2020', 'crop1': 'tobacco', 'pro1': '40', 'date2': '17/04/2020', 'crop2': 'ragi', 'Pro2': '30', 'date3': '18/04/2020', 'crop3': 'wheat', 'pro3': '20'}
+    data={'Name': 'yesu babu', 'Age': '21', 'PhNo': '9849643914', 'Address': 'kankipadu', 'District': 'krishna', 'Mandal': 'kankipadu', 'place': 'kankipadu', 'identity': 'ownland','landarea':'30','culture':'Monoculture','cropkind':'cash', 'crop_select': 'rice', 'date1': '16/04/2020', 'crop1': 'tobacco', 'pro1': '40', 'date2': '17/04/2020', 'crop2': 'ragi', 'Pro2': '30', 'date3': '18/04/2020', 'crop3': 'wheat', 'pro3': '20'}
     user_details(data)
     return render_template('home.html')
 
