@@ -1,6 +1,16 @@
+input:hover,select:hover{
+    background-color:linen;
+    border:1px solid lightslategrey;
+}
+input:focus,select:focus{
+    outline:none;
+}
 .column-1{
     float:left;
-    width:25%;
+    width:24%;
+}
+.column-1{
+    height:27.5em;
 }
 h2{
     font-family:serif;
@@ -11,28 +21,29 @@ h2{
 .row{
     margin-top:2em;
 }
+#h33{
+    background-color: #837e7c;
+}
 .root{
-    background-color: goldenrod;
+    background-color: #95b9c7;
     border-radius: 8px;
 }
 .root>h2{
     color:#254117;
 }
 h3{
-    color:lightslategray;
-}
-.column-1>h3{
-    color:lightslategrey;
+    color:#2b1b17;
 }
 .column-2{
     float:left;
-    width:49%;
-    margin-left:4px;
+    width:24%;
+    margin:auto;
+    overflow-wrap: break-word;
 }
 .containeer-fluid{
     float:left;
-    width:24%;
-    margin-left:4px;
+    width:48%;
+    margin-left:0.3em;
 }
 #body{
     background-color: lightgray;
@@ -47,10 +58,12 @@ h3{
     height: 100%;
 }
 .column-2{
-    height:200%;
+    min-height: 35em;
+    max-height:auto;
 }
 .containeer-fluid{
-    height:70%;
+    min-height: 35em;
+    max-height:auto;
 }
 /* .row:after{
     content:"";
@@ -100,14 +113,14 @@ option,label{
     background-color: whitesmoke;
     border: 3px solid lightslategray;
 }
-.column-1,.column-2,.containeer-fluid{
-    box-shadow: 6px 5px 4px grey; 
+.column-1:hover,.column-2:hover,.containeer-fluid:hover{
+    box-shadow: 2px 4px 3px grey; 
+}
+.column-2{
+    margin-left:0.3em;
 }
 h4{
     color:brown;
-}
-.column-2,.containeer-fluid{
-    border-left:1em;
 }
 .inner-d{
     margin-top:1em;
@@ -128,7 +141,7 @@ h4{
     margin-top:1.5em;
     margin-left: 0.5em;
 }
-.madya,.madhya1,.madhya2,.madhya3{
+.madya,.madhya1,.madhya2{
     margin-top: 0.5em;
     margin-left: 3.0em;
 }
@@ -136,17 +149,9 @@ h4{
     margin-top:1em;
     margin-left:0.8em;
 }
-.inner-e{
-    margin-left:3em;
-    margin-top:0.5em;
-}
-.e,.f{
-    margin-top:0.5em;
-    margin-left: 0.8em;
-}
 #filter{
-    margin-left: 18em;
-    margin-top:1.2em;
+    margin-left: 20em;
+    margin-top:1.4em;
 }
 .f>select{
     margin-left:1.5em;
