@@ -122,10 +122,9 @@
                     }
                     $.ajax({
                         type: "POST",
-                        url: "/pages/test/",
+                        url: "{{url_for('services')}}",
                         data: {
-                            id: $("#button_1").val(),
-                            access_token: $("#access_token").val()
+                            start=$("#start").val(),
                         },
                         success: function (result) {
                             alert('ok');
