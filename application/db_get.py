@@ -14,5 +14,5 @@ def get_details(connection,*arg):
         print(error)
     finally:
         if connection is not None:
-            connection.close()
+            # connection.close()
             return(result)

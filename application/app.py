@@ -4,6 +4,7 @@ import json
 from db_connect import connect
 from db_user import user_details
 from panda_data import data
+from db_farmer_search import send_details
 
 
 app=Flask(__name__)
@@ -24,7 +25,19 @@ def login():
 def aboutus():
     return render_template('aboutus.html')
 
-@app.route('/services')
+@app.route('/farmersearch',methods=['POST','GET'])
+def farmersearch():
+    start=request.form['start']
+    end=request.form['end']
+    district=request.form['district']
+    mandal=request.form['mandal']
+    crops=request.form['crops']
+    result=send_details(request.form)
+    # print(type(json.loads(request.form['crops'])))
+    # return render_template('hello.html',start=start,end=end,district=district,mandal=mandal,crops=crops)
+    return render_template('hello.html',result=result)
+    # return render_template('hello.html')
+@app.route('/services',methods=['POST','GET'])
 def services():
     with open('datasets/dat.json','r') as f:
         datalist=json.load(f)
