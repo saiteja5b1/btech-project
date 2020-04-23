@@ -1,115 +1,161 @@
 <html>
-    <head>
+
+<head>
     <link rel="stylesheet" href="{{url_for('static',filename='farmersearch.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Cache-Control" control="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
-        <!-- <link rel="text/javascript" href="S:project/application/static/js/filtermain.js"> -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        </head>
-    <body id="body">
-        <div class="root">
-            <h2 id="torp"><center>Search For Needy One</center></h2>
+    <meta http-equiv="Cache-Control" control="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- <link rel="text/javascript" href="S:project/application/static/js/filtermain.js"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body id="body">
+    <div class="root">
+        <h2 id="torp">
+            <center>Search For Needy One</center>
+        </h2>
         <hr>
-        </div>
-        <div class="row">
-            <div class="column-1">
-                <div id="h33">
-                <h3><center>Filter out the feed</center></h3>
+    </div>
+    <div class="row">
+        <div class="column-1">
+            <div id="h33">
+                <h3>
+                    <center>Filter out the feed</center>
+                </h3>
                 <hr>
-                </div>
-        <!-- <legend>Filter</legend> -->
-                <div class="mainsearch" id="aaa">
-                    <div class="a">
-                        <input type="checkbox" id="by_afford"/>
-                        <label for="range">Filter by Range</label>
-                    </div>
-                    <div class="madya" id="for_range">
-                        <div class="inner-a">
-                            <label for="start_range">From</label>
-                            <input type="number" id="start"/>
-                        </div>
-                        <div class="inner-b">
-                            <label id="end_range" for="end_range">To</label>
-                            <input type="number" id="end"/>
-                        </div>
-                        </class>
-                    </div>
-                    <div class="c">
-                        <input type="checkbox" id="by_place"/>
-                        <label for="place">Filter by Place</label>
-                    </div>
-                    <div class="madhya1" id="for_place">
-                        <div class="inner-c">
-                            <label for="district">Select District</label>
-                            <select id="diss" onselect="show_mand(this)">
-                                <option value="">__Select__</option>
-                            </select>
-                        </div>
-                        <div class="inner-d">
-                            <label for="mandal">Select Mandal</label>
-                            <select id="mann">
-                                <option value="">__Select__</option>
-                            </select>
-                        </div>
-                        </class>
-                    </div>
-                    <div class="d">
-                        <input type="checkbox" id="by_crop"/>
-                        <label for="crop">Filter by Crop</label>
-                    </div>
-                    <div class="madhya2" id="for_crop">
-                            <label for="crop_name">Select Your Choice</label>
-                            <select multiple size="">
-                                <option val="">__Select__</option>
-                            </select>
-                        </class>
-                    </div>
-                    <!-- <div class="madhya3">
-                        <div class="inner-g">
-                            <input type="radio" id="excited" name="confirm2" value="yes">
-                            <label for="yes">Yes,I'm interested</label>
-                        </div>
-                        <div class="inner-h">
-                            <input type="radio" id="notexcited" name="confirm2" value="no">
-                            <label for="no">No,I'm not interested</label>
-                        </div>
-                    </div>
-                    <div class="f">
-                        <label for="confirm02">You want to go for single or multiple crops</label>
-                        <select id="confirm3">
-                            <option val="0">Single</option>
-                            <option val="1">Multiple</option>
-                        </select>
-                    </div> -->
-                    <input type="submit" id="filter" value="Filter"/>
-                </div>
             </div>
-                <div class="column-2">
-                    <div id="h33">
-                    <h3><center>Farmers Feed</center></h3>
-                    <hr>
-                    </div>
-                    <div class="help-1">
-                    </div>
+            <!-- <legend>Filter</legend> -->
+            <div class="mainsearch" id="aaa">
+                <div class="a">
+                    <input type="checkbox" id="by_afford" />
+                    <label for="range">Filter by Range</label>
                 </div>
-                <div class="containeer-fluid">
-                    <div id="h33">
-                    <h3><center>Details</center></h3>
-                    <hr>
+                <div class="madya" id="for_range">
+                    <div class="inner-a">
+                        <label for="start_range">From</label>
+                        <input type="number" id="start" />
                     </div>
+                    <div class="inner-b">
+                        <label id="end_range" for="end_range">To</label>
+                        <input type="number" id="end" />
+                    </div>
+                    </class>
                 </div>
+                <div class="c">
+                    <input type="checkbox" id="by_place" />
+                    <label for="place">Filter by Place</label>
+                </div>
+                <div class="madhya1" id="for_place">
+                    <div class="inner-c">
+                        <label for="district">Select District</label>
+                        <select id="diss" onselect="show_mand(this)">
+                            <option value="">__Select__</option>
+                            {% for i in districts %}
+                            <option value="{{i}}">{{i}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="inner-d">
+                        <label for="mandal">Select Mandal</label>
+                        <select id="mann">
+                            <option value="">__Select__</option>
+                        </select>
+                        <script>
+                            $("select[id='diss']").change(function () {
+                                selectedDistrict = $(this).val();
+                                // $(#mandals).empty();     
+
+                                var s = {{ datalist| tojson
+                            }};
+                            console.log(s[selectedDistrict].length)
+                            sel = document.getElementById('mann');
+                            var child = sel.lastElementChild;
+                            while (child) {
+                                sel.removeChild(child);
+                                child = sel.lastElementChild;
+                            }
+                            for (i = 0; i < s[selectedDistrict].length; i++) {
+                                opt = document.createElement('option');
+                                opt.value = s[selectedDistrict][i];
+                                opt.innerHTML = opt.value;
+                                sel.appendChild(opt);
+                            }
+                        });
+                        </script>
+                    </div>
+                    </class>
+                </div>
+                <div class="d">
+                    <input type="checkbox" id="by_crop" />
+                    <label for="crop">Filter by Crop</label>
+                </div>
+                <div class="madhya2" id="for_crop">
+                    <label for="crop_name">Select Your Choice</label>
+                    <select multiple size="5" id="crop">
+                        <option val="">__Select__</option>
+                        {% for i in crops %}
+                        <option value="{{i}}">{{i}}</option>
+                        {%endfor%}
+                    </select>
+                    </class>
+                </div>
+                <button type="submit" id="filter" value="Filter">filter</button>
+            </div>
+            <script>
+                $("#filter").click(function () {
+                    if ($(by_afford).is(":checked")) {
+                        console.log($('#start').val());
+                        console.log($('#start').val());
+                    }
+                    if ($(by_place).is(":checked")) {
+                        console.log($('#diss').val());
+                        console.log($('#mann').val());
+                    }
+                    if ($(by_crop).is(":checked")) {
+                        console.log($('#crop').val())
+                    }
+                })
+
+
+            </script>
         </div>
-    </body>
-    <!-- <script type="text/javascript" src="{{url_for('static',filename='js/filtermain.js')}}"></script> -->
-    <script>
-        $(document).ready(function(){
-            $('#for_range').hide();
-        })
-    </script>
+
+
+
+        <div class="column-2">
+            <div id="h33">
+                <h3>
+                    <center>Farmers Feed</center>
+                </h3>
+                <hr>
+            </div>
+            <div class="help-1">
+            </div>
+        </div>
+
+
+
+        <div class="containeer-fluid">
+            <div id="h33">
+                <h3>
+                    <center>Details</center>
+                </h3>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="{{url_for('static',filename='js/filtermain.js')}}"></script> -->
+<!-- <script>
+    $(document).ready(function () {
+        $('#for_range').hide();
+    })
+</script> -->
+
 </html>

@@ -3,6 +3,7 @@ from flask_login import login_required
 import json
 from db_connect import connect
 from db_user import user_details
+from panda_data import data
 
 
 app=Flask(__name__)
@@ -28,9 +29,11 @@ def services():
     with open('datasets/dat.json','r') as f:
         datalist=json.load(f)
     dist=list(datalist.keys()) 
-    with open('datasets/crops.json','r') as g:
-        crops=json.load(g)
-    return render_template('farmersearch.html',datalist=datalist,districts=dist,crops=list(crops.keys()))
+    # with open('datasets/crops.json','r') as g:
+    #     crops=json.load(g)
+    crop=data()
+    crops=crop['crop'].unique()
+    return render_template('farmersearch.html',datalist=datalist,districts=dist,crops=list(crops))
     
 @app.route('/hello',methods=['POST'])
 def hello():
@@ -66,7 +69,7 @@ def register():
     with open('datasets/dat.json','r') as f:
         datalist=json.load(f)
     dist=list(datalist.keys())    
-    return render_template('register.html',datalist=datalist,districts=dist)
+    return render_template('register1.html',datalist=datalist,districts=dist)
 
 # @app.route('/register',methods=['POST'])
 # def getvalue():

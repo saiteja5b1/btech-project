@@ -84,22 +84,6 @@ class table:
         
  
 
-    # def get_details(self):
-    #     """ table for storing user agro details """
-    #     self.command="""
-    #     select type,crop from crops;       
-    #     """
-    #     try:
-    #         self.cur=self.connection.cursor()
-    #         self.cur.execute(self.command)
-    #         reult=self.cur.fetchall()
-
-    #     except (Exception, psycopg2.DatabaseError) as error:
-    #         print(error)
-    #     finally:
-    #         if self.connection is not None:
-    #             self.connection.close()
-    #             print(result)
 
     # def get_user_login_details(self):
     #     """ table for storing user login details """

@@ -37,7 +37,7 @@ def main():
     #             crop_data.xs(i)['districtwise']=0
                 # print(count)
                 # count=count+1
-    # # print(crop_data)
+    # print(crop_data)
     # for i in range(rows):
     #     if tuple(crop_data.xs(i)[['season','district_name','crop']]) in indices:
             
