@@ -33,6 +33,7 @@ def farmersearch():
     mandal=request.form['mandal']
     crops=request.form['crops']
     result=send_details(request.form)
+    print(result)
     # print(type(json.loads(request.form['crops'])))
     # return render_template('hello.html',start=start,end=end,district=district,mandal=mandal,crops=crops)
     return render_template('hello.html',result=result)
