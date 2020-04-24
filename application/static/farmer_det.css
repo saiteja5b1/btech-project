@@ -1,0 +1,61 @@
+body{
+    background-color: yellow;
+}
+.a,.b,.c{
+    float:left;
+}
+.main1{
+    margin-left:4em;
+}
+.b,.c,.j{
+    margin-left:8em;
+}
+.main2{
+    margin-left:3.5em;
+    margin-top:6em;
+}
+.d,.i,.l,.o,.r{
+    float:left;
+    clear:both;
+}
+.e{
+    float:left;
+    margin-left:7em;
+}
+.main3{
+    margin-top:10em;
+}
+.f,.g,.h,.j,.k,.m,.n,.p,.q{
+    float:left;
+}
+.ins1{
+    margin-top:2em;
+    margin-left:1em;
+}
+.ins2{
+    margin-top:6em;
+    margin-left:4em;
+}
+.ins3{
+    margin-top:10em;
+    margin-left:4em;
+}
+.ins4{
+    margin-top:14em;
+    margin-left:4em;
+}
+.g,.h{
+    margin-left:5em;
+}
+.k{
+    margin-left:6em;
+}
+.m,.p{
+    margin-left:8em;
+}
+.n,.q{
+    margin-left:6em;
+}
+.r{
+    margin-top:2em;
+}
